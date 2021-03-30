@@ -15,7 +15,6 @@ export default class Puzzle {
 	}
 
 	toggleOpening(rowIndex, cellIndex) {
-		debugger;
 		const newPuzzle = [...this.puzzleData];
 		const currentValue = newPuzzle[rowIndex][cellIndex];
 		newPuzzle[rowIndex][cellIndex] = nextValue(currentValue);

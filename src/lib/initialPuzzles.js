@@ -25,11 +25,7 @@ export default class InitialPuzzles {
 		return puzzles[id - 1];
 	}
 
-	maxId() {
+	get length() {
 		return puzzles.length;
-	}
-
-	minId() {
-		return 1;
 	}
 }
