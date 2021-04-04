@@ -67,10 +67,10 @@
 	.opening.vertical:after {
 		background: black;
 		content: '';
-		height: 90%;
+		height: 100%;
 		left: 50%;
 		position: absolute;
-		top: 5%;
+		top: 0;
 		width: 2px;
 	}
 
@@ -78,9 +78,9 @@
     background: black;
     content: "";
     position: absolute;
-    left: 5%;
+    left: 0;
     top: 50%;
     height: 2px;
-    width: 90%;
+    width: 100%;
 	}
 </style>
