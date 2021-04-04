@@ -7,18 +7,22 @@
 	{#each puzzle.rows() as row, rowIndex}
 		<div class="row">
 			{#each row as cell, columnIndex}
-				<div class="cell">
-					{#if typeof cell !== 'number'}
+				{#if typeof cell !== 'number'}
+					<div class="cell">
 						<div
 							class="opening"
 							on:click={() => toggleOpening(rowIndex, columnIndex)}
 							class:horizontal={cell === '-'}
 							class:vertical={cell === '|'}
-						>&nbsp;</div>
-					{:else}
+						>
+							&nbsp;
+						</div>
+					</div>
+				{:else}
+					<div class="cell" class:correct={puzzle.isCorrectNumber(rowIndex, columnIndex)}>
 						<div class="number">{cell}</div>
-					{/if}
-				</div>
+					</div>
+				{/if}
 			{/each}
 		</div>
 	{/each}
@@ -62,8 +66,12 @@
 		border-right: 1px solid black;
 	}
 
+	.cell.correct {
+		background-color: lightgrey;
+	}
+
 	.opening {
-    cursor: pointer;
+		cursor: pointer;
 		flex: 1;
 		position: relative;
 		height: 100%;
@@ -80,12 +88,12 @@
 	}
 
 	.opening.horizontal:after {
-    background: black;
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    height: 2px;
-    width: 100%;
+		background: black;
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		height: 2px;
+		width: 100%;
 	}
 </style>

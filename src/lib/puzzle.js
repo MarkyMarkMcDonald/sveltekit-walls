@@ -1,11 +1,11 @@
 const nextValue = (currentValue) => {
 	switch (currentValue) {
-		case "-":
-			return "|";
-		case "|":
+		case '-':
+			return '|';
+		case '|':
 			return null;
 		default:
-			return "-";
+			return '-';
 	}
 };
 
@@ -39,12 +39,15 @@ export default class Puzzle {
 		const badSquare = this._numberSquares().find(({ rowIndex, columnIndex, value }) => {
 			let connectedLines = this._connectedLines(rowIndex, columnIndex);
 			if (connectedLines !== value) {
-					return true;
-				}
+				return true;
 			}
-		);
+		});
 
 		return !badSquare;
+	}
+
+	isCorrectNumber(rowIndex, columnIndex) {
+		return this._connectedLines(rowIndex, columnIndex) === this.puzzleData[rowIndex][columnIndex];
 	}
 
 	_connectedLines(rowIndex, columnIndex) {
