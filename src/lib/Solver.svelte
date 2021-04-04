@@ -22,6 +22,11 @@
 			{/each}
 		</div>
 	{/each}
+	{#if puzzle.isSolved()}
+		Success!
+	{:else if puzzle.isFilled()}
+		Not quite...
+	{/if}
 </div>
 
 <style lang="scss">
