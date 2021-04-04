@@ -15,13 +15,15 @@ export default class Puzzle {
 	}
 
 	toggleOpening(rowIndex, cellIndex) {
-		const newPuzzle = [...this.puzzleData];
-		const currentValue = newPuzzle[rowIndex][cellIndex];
-		newPuzzle[rowIndex][cellIndex] = nextValue(currentValue);
-		return new Puzzle(newPuzzle);
+		const currentValue = this.puzzleData[rowIndex][cellIndex];
+		this.puzzleData[rowIndex][cellIndex] = nextValue(currentValue);
 	}
 
 	rows() {
+		return this.puzzleData;
+	}
+
+	toJSON() {
 		return this.puzzleData;
 	}
 }

@@ -4,9 +4,9 @@
 </script>
 
 <div class="container">
-	<button class="switcher" disabled={$puzzleNumber <= 1} on:click={() => $puzzleNumber -= 1}>&lt;</button>
-	{$puzzleNumber}
-	<button class="switcher" disabled={$puzzleNumber >= max} on:click={() => $puzzleNumber += 1}>&gt;</button>
+	<button class="switcher" disabled={$puzzleNumber <= 0} on:click={() => puzzleNumber.update(n => n - 1)}>&lt;</button>
+	{$puzzleNumber + 1}
+	<button class="switcher" disabled={$puzzleNumber + 1 >= max} on:click={() => puzzleNumber.update(n => n + 1)}>&gt;</button>
 </div>
 
 <style lang="scss">

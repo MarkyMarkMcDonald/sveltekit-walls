@@ -1,26 +1,19 @@
 <script lang="ts">
 	import Solver from './Solver.svelte';
 	import Stepper from './Stepper.svelte';
-	import InitialPuzzles from './initialPuzzles';
-	import Puzzle from './puzzle';
-	import { puzzleNumber } from './puzzleStore';
-	const initialPuzzles = new InitialPuzzles();
+	import { puzzleNumber, puzzles } from './puzzleStore';
 
-
-	$: puzzle = new Puzzle(initialPuzzles.get($puzzleNumber));
+	$: puzzle = $puzzles[$puzzleNumber];
 
 	function toggleOpening(rowIndex, cellIndex) {
-		puzzle = puzzle.toggleOpening(rowIndex, cellIndex);
-	}
-
-	function setPuzzleNumber(n) {
-		puzzleNumber.set(n);
+		puzzle.toggleOpening(rowIndex, cellIndex);
+		puzzles.set($puzzles);
 	}
 </script>
 
 <main>
 	<Solver {puzzle} {toggleOpening} />
-	<Stepper max={initialPuzzles.length} {setPuzzleNumber} {puzzleNumber} />
+	<Stepper max={$puzzles.length} {puzzleNumber} />
 </main>
 
 <style lang="scss">

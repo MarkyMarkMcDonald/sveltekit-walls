@@ -3,7 +3,7 @@
 </script>
 
 <main>
-	<Puzzles puzzle="puzzle"/>
+	<Puzzles />
 </main>
 
 <style lang="scss">

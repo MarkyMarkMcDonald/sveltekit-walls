@@ -1,3 +1,5 @@
+import Puzzle from '../lib/puzzle';
+
 const data = [
 	"2.1.3.,......,...2.3,1.4...,......,.4.2.1",
 	"3...2.2,..3....,3....5.,...2...,.2....3,....1..,2.1...3",
@@ -22,10 +24,14 @@ const puzzles = data.map((raw) => hydrateString(raw));
 
 export default class InitialPuzzles {
 	get(id) {
-		return puzzles[id - 1];
+		return new Puzzle(puzzles[id - 1]);
 	}
 
 	get length() {
 		return puzzles.length;
+	}
+
+	all() {
+		return puzzles.map(puzzle => new Puzzle(puzzle));
 	}
 }
