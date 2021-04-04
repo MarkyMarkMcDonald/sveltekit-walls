@@ -21,7 +21,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    font-size: clamp(100%, 1rem + 3vw, 100vmin);
+    font-size: clamp(10px, 1rem + 3vmin, 100vmin);
     justify-content: space-evenly;
     height: 85vh;
   }

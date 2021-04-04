@@ -30,7 +30,6 @@
 		flex-direction: column;
 		height: 65vmin;
 		width: 65vmin;
-		font-size: clamp(100%, 1rem + 3vmin, 100vmin);
 	}
 
 	.row {

@@ -12,12 +12,11 @@
 <style lang="scss">
   .container {
     display: flex;
-    font-size: clamp(100%, 1rem + 3vmin, 100vmin);
     justify-content: center;
   }
 
   .switcher {
-    font-size: clamp(100%, 1rem + 3vmin, 100vmin);
+    font-size: clamp(10px, 1rem + 3vmin, 100vmin);
 		margin-left: 8px;
     margin-right: 8px;
   }
