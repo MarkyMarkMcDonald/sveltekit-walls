@@ -46,6 +46,37 @@ export default class Puzzle {
 		return !badSquare;
 	}
 
+	isCorrect(rowIndex, columnIndex) {
+		let value = this.puzzleData[rowIndex][columnIndex];
+		if (typeof value === 'number') {
+			return this.isCorrectNumber(rowIndex, columnIndex)
+		} else {
+			const connectedNumber = this.connectedNumber(rowIndex, columnIndex, value)
+			if (connectedNumber) {
+				return this.isCorrectNumber(connectedNumber.rowIndex, connectedNumber.columnIndex)
+			} else {
+				return this.isSurrounded(rowIndex, columnIndex)
+			}
+		}
+	}
+
+	connectedNumber(rowIndex, columnIndex, value) {
+		if (!(value === '|' || value === '-')) {
+			return false
+		}
+
+		const searchUp = () => {
+			
+		}
+
+		if (value === '|') {
+			return searchUp() || searchDown()
+		} else {
+			return searchLeft() || searchRight()
+		}
+
+	}
+
 	isCorrectNumber(rowIndex, columnIndex) {
 		return this._connectedLines(rowIndex, columnIndex) === this.puzzleData[rowIndex][columnIndex];
 	}
